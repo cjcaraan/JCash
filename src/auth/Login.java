@@ -2,13 +2,10 @@ package auth;
 
 import model.User;
 import java.util.Scanner;
+import dao.UserDao;
 
 public class Login {
-    private final Register register;
-
-    public Login(Register register) {
-        this.register = register;
-    }
+    private final UserDao userDao = new UserDao();
 
     // Handler: returns the logged-in User, or null if login failed
     public User handleLogin(Scanner scanner) {
@@ -30,8 +27,8 @@ public class Login {
 
     // login logic
     public User login(String mobileNumber, String pin) {
-        User user = register.findByMobile(mobileNumber);
-
+        // get user using userDao
+        User user = (mobileNumber == null) ? null : userDao.findByMobile(mobileNumber.trim());
         if (user == null || !user.checkpin(pin)) {
             throw new IllegalArgumentException("Invalid mobile number or PIN.");
         }
