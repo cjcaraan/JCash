@@ -1,0 +1,9 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "src/lib/sqlite-jdbc-3.54.1.0.jar"
+    ],
+
+    "java.debug.settings.vmArgs": 
+    	"--enable-native-access=ALL-UNNAMED"
+}

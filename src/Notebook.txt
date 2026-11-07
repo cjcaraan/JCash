@@ -1,0 +1,29 @@
+TO DO:
+̶ ̶ ̶ ̶ ̶-̶ ̶d̶o̶ ̶c̶a̶s̶h̶I̶n̶ ̶m̶e̶t̶h̶o̶d̶ ̶o̶r̶ ̶c̶l̶a̶s̶s̶?̶?̶
+̶ ̶ ̶ ̶ ̶-̶ ̶m̶a̶y̶b̶e̶ ̶I̶ ̶c̶a̶n̶ ̶j̶u̶s̶t̶ ̶a̶d̶d̶ ̶t̶r̶a̶n̶s̶f̶e̶r̶ ̶a̶n̶d̶ ̶c̶a̶s̶h̶i̶n̶ ̶i̶n̶ ̶o̶n̶e̶ ̶T̶r̶a̶n̶s̶a̶c̶t̶i̶o̶n̶ ̶c̶l̶a̶s̶s̶ ̶a̶n̶d̶ ̶p̶u̶t̶ ̶b̶o̶t̶h̶ ̶m̶e̶t̶h̶o̶d̶s̶ ̶t̶h̶e̶r̶e̶?̶?̶
+
+    - Cashing in, or any transactions doesn't reflect the database as of yet.
+      So that will be the next step.
+    - after that, make the GUI.
+    
+TO ADD:
+ ̶C̶a̶s̶h̶-̶i̶n̶ ̶F̶e̶a̶t̶u̶r̶e̶:̶
+̶ ̶ ̶ ̶ ̶-̶ ̶U̶s̶e̶r̶ ̶w̶i̶l̶l̶ ̶i̶n̶p̶u̶t̶ ̶a̶ ̶n̶u̶m̶b̶e̶r̶,̶ ̶w̶i̶l̶l̶ ̶b̶e̶ ̶t̶a̶k̶e̶n̶ ̶a̶s̶ ̶a̶ ̶d̶o̶u̶b̶l̶e̶ ̶d̶a̶t̶a̶ ̶t̶y̶p̶e̶.̶
+̶ ̶ ̶ ̶ ̶-̶ ̶T̶h̶a̶t̶ ̶i̶n̶p̶u̶t̶ ̶w̶i̶l̶l̶ ̶b̶e̶ ̶p̶r̶o̶c̶e̶s̶s̶e̶d̶ ̶b̶y̶ ̶c̶u̶r̶r̶e̶n̶t̶U̶s̶e̶r̶.̶c̶a̶s̶h̶I̶n̶(̶c̶a̶s̶h̶I̶n̶V̶a̶l̶u̶e̶)̶ ̶i̶n̶ ̶T̶r̶a̶n̶s̶a̶c̶t̶i̶o̶n̶.̶j̶a̶v̶a̶ ̶c̶l̶a̶s̶s̶ ̶i̶n̶s̶i̶d̶e̶ ̶s̶e̶r̶v̶i̶c̶e̶s̶ ̶p̶a̶c̶k̶a̶g̶e̶
+̶ ̶ ̶ ̶ ̶-̶ ̶A̶f̶t̶e̶r̶ ̶a̶d̶d̶i̶n̶g̶ ̶t̶o̶ ̶b̶a̶l̶a̶n̶c̶e̶,̶ ̶u̶p̶d̶a̶t̶e̶ ̶d̶a̶t̶a̶b̶a̶s̶e̶ ̶a̶n̶d̶ ̶l̶o̶g̶ ̶t̶h̶e̶ ̶t̶r̶a̶n̶s̶a̶c̶t̶i̶o̶n̶.̶
+
+
+ ̶T̶r̶a̶n̶s̶f̶e̶r̶ ̶F̶e̶a̶t̶u̶r̶e̶:̶
+̶ ̶ ̶ ̶ ̶-̶ ̶U̶s̶e̶r̶ ̶w̶i̶l̶l̶ ̶i̶n̶p̶u̶t̶ ̶a̶ ̶m̶o̶b̶i̶l̶e̶ ̶n̶u̶m̶b̶e̶r̶ ̶a̶s̶ ̶s̶t̶r̶i̶n̶g̶ ̶a̶n̶d̶ ̶a̶n̶ ̶a̶m̶o̶u̶n̶t̶ ̶t̶o̶ ̶b̶e̶ ̶t̶a̶k̶e̶n̶ ̶a̶s̶ ̶a̶ ̶d̶o̶u̶b̶l̶e̶ ̶d̶a̶t̶a̶ ̶t̶y̶p̶e̶.̶
+̶ ̶ ̶ ̶ ̶-̶ ̶C̶h̶e̶c̶k̶s̶ ̶i̶f̶ ̶t̶h̶e̶ ̶m̶o̶b̶i̶l̶e̶ ̶n̶u̶m̶b̶e̶r̶ ̶i̶n̶p̶u̶t̶t̶e̶d̶ ̶i̶s̶ ̶v̶a̶l̶i̶d̶ ̶a̶n̶d̶ ̶i̶s̶ ̶i̶n̶ ̶t̶h̶e̶ ̶d̶a̶t̶a̶b̶a̶s̶e̶ ̶(̶o̶r̶ ̶a̶t̶ ̶t̶h̶e̶ ̶m̶o̶m̶e̶n̶t̶,̶ ̶i̶n̶ ̶t̶h̶e̶ ̶m̶e̶m̶o̶r̶y̶ ̶s̶i̶n̶c̶e̶ ̶I̶ ̶h̶a̶v̶e̶n̶'̶t̶ ̶e̶s̶t̶a̶b̶l̶i̶s̶h̶e̶d̶ ̶t̶h̶e̶ ̶d̶a̶t̶a̶b̶a̶s̶e̶ ̶y̶e̶t̶)̶
+̶ ̶ ̶ ̶ ̶-̶ ̶C̶h̶e̶c̶k̶ ̶w̶i̶l̶l̶ ̶b̶e̶ ̶i̶n̶ ̶v̶a̶l̶i̶d̶a̶t̶i̶o̶n̶ ̶c̶l̶a̶s̶s̶ ̶i̶n̶ ̶u̶t̶i̶l̶ ̶p̶a̶c̶k̶a̶g̶e̶ ̶(̶t̶o̶ ̶b̶e̶ ̶d̶o̶n̶e̶ ̶l̶a̶t̶e̶r̶)̶.̶
+̶ ̶ ̶ ̶ ̶-̶ ̶I̶f̶ ̶i̶n̶v̶a̶l̶i̶d̶,̶ ̶p̶r̶i̶n̶t̶ ̶e̶r̶r̶o̶r̶ ̶m̶e̶s̶s̶a̶g̶e̶ ̶i̶n̶v̶a̶l̶i̶d̶ ̶m̶o̶b̶i̶l̶e̶ ̶n̶u̶m̶b̶e̶r̶.̶
+̶ ̶ ̶ ̶ ̶-̶ ̶C̶h̶e̶c̶k̶ ̶i̶f̶ ̶t̶h̶e̶ ̶a̶m̶o̶u̶n̶t̶ ̶i̶s̶ ̶l̶e̶s̶s̶ ̶t̶h̶a̶n̶ ̶t̶h̶e̶ ̶c̶u̶r̶r̶e̶n̶t̶ ̶b̶a̶l̶a̶n̶c̶e̶ ̶o̶f̶ ̶t̶h̶e̶ ̶u̶s̶e̶r̶.̶
+̶ ̶ ̶ ̶ ̶-̶ ̶C̶h̶e̶c̶k̶ ̶w̶i̶l̶l̶ ̶b̶e̶ ̶i̶n̶ ̶v̶a̶l̶i̶d̶a̶t̶i̶o̶n̶ ̶c̶l̶a̶s̶s̶ ̶i̶n̶ ̶u̶t̶i̶l̶ ̶p̶a̶c̶k̶a̶g̶e̶ ̶(̶t̶o̶ ̶b̶e̶ ̶d̶o̶n̶e̶ ̶l̶a̶t̶e̶r̶)̶.̶
+̶ ̶ ̶ ̶ ̶-̶ ̶i̶f̶ ̶i̶n̶v̶a̶l̶i̶d̶,̶ ̶p̶r̶i̶n̶t̶ ̶e̶r̶r̶o̶r̶ ̶m̶e̶s̶s̶a̶g̶e̶ ̶n̶o̶t̶ ̶e̶n̶o̶u̶g̶h̶ ̶b̶a̶l̶a̶n̶c̶e̶.̶
+̶ ̶ ̶ ̶ ̶-̶ ̶i̶f̶ ̶v̶a̶l̶i̶d̶,̶ ̶s̶u̶b̶t̶r̶a̶c̶t̶ ̶t̶h̶e̶ ̶a̶m̶o̶u̶n̶t̶ ̶t̶o̶ ̶u̶s̶e̶r̶'̶s̶ ̶b̶a̶l̶a̶n̶c̶e̶ ̶a̶n̶d̶ ̶a̶d̶d̶ ̶t̶o̶ ̶t̶h̶e̶ ̶r̶e̶c̶e̶i̶v̶e̶r̶'̶s̶ ̶b̶a̶l̶a̶n̶c̶e̶.̶
+̶ ̶ ̶ ̶ ̶-̶ ̶u̶p̶d̶a̶t̶e̶ ̶d̶a̶t̶a̶b̶a̶s̶e̶ ̶a̶n̶d̶ ̶l̶o̶g̶ ̶t̶h̶e̶ ̶t̶r̶a̶n̶s̶a̶c̶t̶i̶o̶n̶.̶
+̶
+̶ ̶ ̶ ̶ ̶-̶ ̶N̶O̶T̶E̶:̶ ̶T̶h̶e̶ ̶r̶e̶c̶e̶i̶v̶e̶r̶ ̶w̶i̶l̶l̶ ̶b̶e̶ ̶a̶ ̶n̶e̶w̶ ̶U̶S̶E̶R̶ ̶o̶b̶j̶e̶c̶t̶ ̶i̶n̶i̶t̶i̶a̶l̶i̶z̶e̶d̶ ̶w̶i̶t̶h̶ ̶t̶h̶e̶ ̶a̶t̶t̶r̶i̶b̶u̶t̶e̶s̶ ̶s̶a̶v̶e̶d̶ ̶i̶n̶ ̶t̶h̶e̶ ̶d̶a̶t̶a̶b̶a̶s̶e̶.̶
+̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶T̶h̶i̶s̶ ̶i̶s̶ ̶s̶o̶ ̶t̶h̶a̶t̶ ̶w̶e̶ ̶c̶a̶n̶ ̶u̶s̶e̶ ̶t̶h̶e̶ ̶a̶l̶r̶e̶a̶d̶y̶ ̶e̶x̶i̶s̶t̶i̶n̶g̶ ̶f̶u̶n̶c̶t̶i̶o̶n̶s̶ ̶m̶a̶d̶e̶ ̶f̶o̶r̶ ̶U̶S̶E̶R̶.̶ ̶
+̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶D̶e̶l̶e̶t̶e̶ ̶t̶h̶i̶s̶ ̶r̶e̶c̶e̶i̶v̶e̶r̶ ̶U̶S̶E̶R̶ ̶o̶b̶j̶e̶c̶t̶ ̶a̶f̶t̶e̶r̶ ̶u̶p̶d̶a̶t̶i̶n̶g̶ ̶t̶h̶e̶ ̶d̶a̶t̶a̶b̶a̶s̶e̶ ̶a̶n̶d̶ ̶l̶o̶g̶g̶i̶n̶g̶ ̶t̶h̶e̶ ̶t̶r̶a̶n̶s̶a̶c̶t̶i̶o̶n̶.̶

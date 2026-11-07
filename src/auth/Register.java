@@ -1,15 +1,13 @@
 package auth;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+
 import java.util.Scanner;
 import model.User;
+import dao.UserDao;
 
 public class Register {
-    private Map<String, User> users = new LinkedHashMap<>();   // key = mobile number
-    private long nextUserId = 1000000001L;
+    // private long nextUserId = 1000000001L;                   // old userId for the hashmap
+    private UserDao userDao = new UserDao();
 
     // Handler: asks for input. Returns the new User, or null if it failed
     public User handleRegister(Scanner scanner) {
@@ -39,8 +37,9 @@ public class Register {
         }
         mobileNumber = mobileNumber.trim();
 
-        if (users.containsKey(mobileNumber)) {
-            throw new IllegalArgumentException("That mobile number is already registered.");
+        // checkers
+        if (userDao.findByMobile(mobileNumber) != null) {
+            throw new IllegalArgumentException("This mobile number is already registered.");
         }
         if (fullName == null || fullName.isBlank()) {
             throw new IllegalArgumentException("Full name cannot be empty.");
@@ -49,21 +48,17 @@ public class Register {
             throw new IllegalArgumentException("PIN must be exactly 8 digits.");
         }
 
-        long userId = nextUserId++;     // only used up once everything is valid
-        User account = new User(userId, mobileNumber, fullName.trim(), pin);
-        users.put(mobileNumber, account);
+        long userId = userDao.nextUserId();     // only used up once everything is valid
+        User account = new User(userId, mobileNumber, fullName.trim(), pin, 0);
+        userDao.insert(account);
         return account;
     }
 
     // Lets Login look up an account without seeing the map itself
-    public User findByMobile(String mobileNumber) {
-        if (mobileNumber == null) {
-            return null;
-        }
-        return users.get(mobileNumber.trim());
-    }
-
-    public List<User> getAllUsers() {
-        return new ArrayList<>(users.values());
-    }
+    //public User findByMobile(String mobileNumber) {
+        //if (mobileNumber == null) {
+            //return null;
+        //}
+        //return users.get(mobileNumber.trim());
+    //}
 }

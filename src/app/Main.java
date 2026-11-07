@@ -1,30 +1,23 @@
 package app;
-import auth.Register;
-import auth.Login;
-import model.User;
 
+import auth.*;
+import dao.*;
+import model.*;
+import services.*;
+import util.*;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-    static final Path FILE = Path.of("src", "database", "numbers.txt");
-    static List<String> numbers = new ArrayList<>();
-
     private Scanner scanner = new Scanner(System.in);
     private Register register = new Register();
-    private Login login = new Login(register);
+    private Login login = new Login();
     private User currentUser = null; // initially no one is logged in
+    private Transaction transaction = new Transaction();
 
     public static void main(String[] args) {
-        loadNumbers();
+        DatabaseUtil.initialize();
         new Main().run();
     }
 
@@ -35,7 +28,7 @@ public class Main {
                 running = showGuestMenu();
             }
             else {
-                //showMemberMenu();
+                showMemberMenu();
             }
         }
         scanner.close();
@@ -51,7 +44,7 @@ public class Main {
 
         switch (choice) {
             case "1":
-                handleRegister();
+                register.handleRegister(scanner);
                 break;
             case "2":
                 currentUser = login.handleLogin(scanner);
@@ -68,51 +61,26 @@ public class Main {
         return true;
     }
 
-    // debug code to be removed later (admin access to show all accounts registered at the moment)
-    private void showAccounts() {
-        List<User> accounts = register.getAllUsers();
+    private void showMemberMenu() {
+        System.out.println("=== Logged in as " + currentUser.getFullName() + " ===");
+        System.out.println("Current Balance: " + currentUser.getBalance());
+        System.out.println("1. Cash-in");
+        System.out.println("2. Transfer");
+        System.out.println("3. Log out");
+        System.out.print("Choose an option: ");
+        String choice = scanner.nextLine().trim();
 
-        if (accounts.isEmpty()) {
-            System.out.println("No accounts registered yet.");
-            return;
+        switch (choice) {
+            case "1":
+                transaction.cashIn(currentUser, scanner);
+                break;
+            case "2":
+                currentUser = null;
+                System.out.println("Logged out.");
+                break;
+            default:
+                System.out.println("Invalid option.");
         }
-
-        System.out.println("Registered accounts (" + accounts.size() + "):");
-        for (User user : accounts) {
-            System.out.println("ID: " + user.getUserId()
-                    + " | Name: " + user.getFullName()
-                    + " | Mobile: " + user.getMobileNumber());
-        }
+        System.out.println();
     }
-    
-
-    private void handleRegister() {
-        User newUser = register.handleRegister(scanner);
-        if (newUser != null) {
-            numbers.add(newUser.getMobileNumber());
-            saveNumbers();
-        }
-    }
-
-    static void saveNumbers() {
-        try {
-            Files.createDirectories(FILE.getParent());          // creates database folder if for some reason it doesnt exist yet
-            Files.write(FILE, numbers);
-        }
-        catch (IOException e) {
-            System.out.print("Could not save file: " + e.getMessage());
-        }
-    }
-
-    static void loadNumbers() {
-        if (Files.exists(FILE)) {
-            try {
-                numbers = new ArrayList<>(Files.readAllLines(FILE));
-            } 
-            catch (IOException e) {
-                System.out.println("Could not read file: " + e.getMessage());
-            }
-        }
-    }
-
 }
