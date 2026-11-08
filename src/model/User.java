@@ -61,8 +61,9 @@ public class User {
         transactionHistory.add(description);
     }
 
-    public List<String> getTransactionHistory() {
-        return new ArrayList<>(transactionHistory);   // a copy so outsiders can't edit it
+    public void getTransactionHistory() {
+        // return new ArrayList<>(transactionHistory);   // a copy so outsiders can't edit it
+        // to be modified
     }
 
     public boolean checkpin(String attempt) {

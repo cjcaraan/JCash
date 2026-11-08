@@ -53,12 +53,4 @@ public class Register {
         userDao.insert(account);
         return account;
     }
-
-    // Lets Login look up an account without seeing the map itself
-    //public User findByMobile(String mobileNumber) {
-        //if (mobileNumber == null) {
-            //return null;
-        //}
-        //return users.get(mobileNumber.trim());
-    //}
 }

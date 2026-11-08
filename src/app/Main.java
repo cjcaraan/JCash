@@ -1,7 +1,6 @@
 package app;
 
 import auth.*;
-import dao.*;
 import model.*;
 import services.*;
 import util.*;
@@ -26,14 +25,14 @@ public class Main {
         while (running) {
             if (currentUser == null) {
                 running = showGuestMenu();
-            }
-            else {
+            } else {
                 showMemberMenu();
             }
         }
         scanner.close();
         System.out.println("Goodbye!");
     }
+
     private boolean showGuestMenu() {
         System.out.println("=== Menu ===");
         System.out.println("1. Register a new account");
@@ -51,9 +50,11 @@ public class Main {
                 break;
             case "3":
                 return false;
-/*             case "4":
-                showAccounts();
-                break; */
+            /*
+             * case "4":
+             * showAccounts();
+             * break;
+             */
             default:
                 System.out.println("Invalid option.");
         }

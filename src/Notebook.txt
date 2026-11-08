@@ -5,6 +5,10 @@ TO DO:
     - Cashing in, or any transactions doesn't reflect the database as of yet.
       So that will be the next step.
     - after that, make the GUI.
+    ̶ ̶ ̶ ̶-̶ ̶L̶o̶g̶i̶n̶ ̶P̶I̶N̶ ̶a̶t̶t̶e̶m̶p̶t̶ ̶l̶i̶m̶i̶t̶ ̶o̶f̶ ̶3̶.̶ ̶T̶H̶I̶S̶ ̶F̶I̶R̶S̶T̶
+    - transaction history
+    - censor pin input in terminal/gui.
+
     
 TO ADD:
  ̶C̶a̶s̶h̶-̶i̶n̶ ̶F̶e̶a̶t̶u̶r̶e̶:̶
