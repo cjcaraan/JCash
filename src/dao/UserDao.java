@@ -90,4 +90,40 @@ public class UserDao {
             throw new RuntimeException(e);
         }
     }
+
+    public double getBalance(String mobileNumber) {
+        String sql = "SELECT balance FROM users WHERE mobile_number = ?";
+
+        try (Connection conn = DatabaseUtil.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql)) {
+            
+            ps.setString(1, mobileNumber);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getDouble("balance");
+                }
+                else { throw new IllegalArgumentException("Couldn't find account. [ERROR from getbalance(String mobileNumber)]"); }
+            } 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void adjustBalance(String mobileNumber, double amount) {
+        String sql = "UPDATE users SET balance = balance + ? WHERE mobile_number = ?";
+
+        try (Connection conn = DatabaseUtil.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql)) {
+                ps.setDouble(1, amount);
+                ps.setString(2, mobileNumber);
+
+                if (ps.executeUpdate() == 0) {      // theoretically this should not be true but redundancy :)
+                    throw new IllegalArgumentException("No account found for that mobile number.");
+                }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

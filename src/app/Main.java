@@ -64,18 +64,30 @@ public class Main {
 
     private void showMemberMenu() {
         System.out.println("=== Logged in as " + currentUser.getFullName() + " ===");
-        System.out.println("Current Balance: " + currentUser.getBalance());
+        System.out.printf("Current Balance: %.2f Php\n", currentUser.getBalance());
         System.out.println("1. Cash-in");
         System.out.println("2. Transfer");
         System.out.println("3. Log out");
+        System.out.println("4. Delete Account");        // code to be added.
         System.out.print("Choose an option: ");
         String choice = scanner.nextLine().trim();
 
         switch (choice) {
             case "1":
-                transaction.cashIn(currentUser, scanner);
+                try {
+                    transaction.cashIn(currentUser, scanner);
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Cash-In failed! " + e.getMessage());
+                }
                 break;
             case "2":
+                try {
+                    transaction.transferToAnotherUser(currentUser, scanner);
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Transfer failed! " + e.getMessage());
+                }
+                break;
+            case "3":
                 currentUser = null;
                 System.out.println("Logged out.");
                 break;
