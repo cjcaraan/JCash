@@ -13,7 +13,7 @@ public class Main {
     private Register register = new Register();
     private Login login = new Login();
     private User currentUser = null; // initially no one is logged in
-    private Transaction transaction = new Transaction();
+    private TransactionServices transactionServices = new TransactionServices();
 
     public static void main(String[] args) {
         DatabaseUtil.initialize();
@@ -68,21 +68,22 @@ public class Main {
         System.out.println("1. Cash-in");
         System.out.println("2. Transfer");
         System.out.println("3. Log out");
-        System.out.println("4. Delete Account");        // code to be added.
+        System.out.println("4. View Transaction History");
+        System.out.println("5. Delete Account");        // code to be added.
         System.out.print("Choose an option: ");
         String choice = scanner.nextLine().trim();
 
         switch (choice) {
             case "1":
                 try {
-                    transaction.cashIn(currentUser, scanner);
+                    transactionServices.cashIn(currentUser, scanner);
                 } catch (IllegalArgumentException e) {
                     System.out.println("Cash-In failed! " + e.getMessage());
                 }
                 break;
             case "2":
                 try {
-                    transaction.transferToAnotherUser(currentUser, scanner);
+                    transactionServices.transferToAnotherUser(currentUser, scanner);
                 } catch (IllegalArgumentException e) {
                     System.out.println("Transfer failed! " + e.getMessage());
                 }
@@ -90,6 +91,9 @@ public class Main {
             case "3":
                 currentUser = null;
                 System.out.println("Logged out.");
+                break;
+            case "4":
+                transactionServices.viewTransactionHistory(currentUser);
                 break;
             default:
                 System.out.println("Invalid option.");

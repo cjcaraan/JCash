@@ -9,6 +9,16 @@ TO DO:
     - transaction history
     - censor pin input in terminal/gui.
 
+    -Transactions will store transaction id, type, amount, details, timestamp.
+        type will contain whether its Cash-in, Transfer, or Withdraw.
+        amount will contain how much money was moved.
+        details will contain "<type> <amount> Php from <accountNumber/entity> to <accountNumber/entity>."
+        e.g. "CASH_IN 1000 Php from KIOSK to 09111111111"
+             "TRANSFER 500 Php from 09111111111 to 09222222222"
+             "WITHDRAW 100 Php from 09111111111 to KIOSK"
+
+        Additionally, add + or - amount at 
+
     
 TO ADD:
  ̶C̶a̶s̶h̶-̶i̶n̶ ̶F̶e̶a̶t̶u̶r̶e̶:̶

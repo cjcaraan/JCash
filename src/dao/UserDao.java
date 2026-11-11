@@ -6,29 +6,35 @@ import java.sql.*;
 
 public class UserDao {
 
-    public long nextUserId() {
-        String sql = "SELECT COALESCE(MAX(user_id), 1000000000) + 1 FROM users";
-        try (Connection conn = DatabaseUtil.getConnection();
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery(sql)) {
-            rs.next();
-            return rs.getLong(1);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    // public long nextUserId() {
+    //     String sql = "SELECT COALESCE(MAX(user_id), 1000000000) + 1 FROM users";
+    //     try (Connection conn = DatabaseUtil.getConnection();
+    //             Statement stmt = conn.createStatement();
+    //             ResultSet rs = stmt.executeQuery(sql)) {
+    //         rs.next();
+    //         return rs.getLong(1);
+    //     } catch (SQLException e) {
+    //         throw new RuntimeException(e);
+    //     }
+    // }
 
-    public void insert(User user) {
-        String sql = "INSERT INTO users (user_id, mobile_number, full_name, pin, balance) "
-                + "VALUES (?, ?, ?, ?, ?)";
+    public long insert(String mobileNumber, String fullName, String pin, double balance) {
+        String sql = "INSERT INTO users (mobile_number, full_name, pin, balance) "
+                + "VALUES (?, ?, ?, ?)";
         try (Connection conn = DatabaseUtil.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setLong(1, user.getUserId());
-            ps.setString(2, user.getMobileNumber());
-            ps.setString(3, user.getFullName());
-            ps.setString(4, user.getPin());
-            ps.setDouble(5, user.getBalance());
+            ps.setString(1, mobileNumber);
+            ps.setString(2, fullName);
+            ps.setString(3, pin);
+            ps.setDouble(4, balance);
             ps.executeUpdate();
+
+            try (ResultSet keys = ps.getGeneratedKeys()) {
+                if (keys.next()) {
+                    return keys.getLong(1);
+                }
+                throw new RuntimeException("Insert to Database worked, but no ID was returned");
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
