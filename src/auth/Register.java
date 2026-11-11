@@ -6,7 +6,6 @@ import model.User;
 import dao.UserDao;
 
 public class Register {
-    // private long nextUserId = 1000000001L;                   // old userId for the hashmap
     private UserDao userDao = new UserDao();
 
     // Handler: asks for input. Returns the new User, or null if it failed
@@ -48,9 +47,8 @@ public class Register {
             throw new IllegalArgumentException("PIN must be exactly 8 digits.");
         }
 
-        long userId = userDao.nextUserId();     // only used up once everything is valid
+        long userId = userDao.insert(mobileNumber, fullName.trim(), pin, 0);     // only used up once everything is valid
         User account = new User(userId, mobileNumber, fullName.trim(), pin, 0);
-        userDao.insert(account);
         return account;
     }
 }
