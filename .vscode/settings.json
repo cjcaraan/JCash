@@ -1,9 +1,19 @@
 {
     "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "src/lib/sqlite-jdbc-3.54.1.0.jar"
+        "/home/ccaraan/workspace/gitstuff/JCash/lib/sqlite-jdbc-3.54.1.0.jar"
     ],
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-21",
+            "path": "/usr/lib/jvm/java-21-openjdk-amd64",
+            "default": true
+        }
+    ],
+    "java.jdt.ls.java.home": "/usr/lib/jvm/java-21-openjdk-amd64",
 
     "java.debug.settings.vmArgs": 
-    	"--enable-native-access=ALL-UNNAMED"
+    	"--enable-native-access=ALL-UNNAMED",
+    "java.project.sourcePaths": [
+        "src"
+    ]
 }

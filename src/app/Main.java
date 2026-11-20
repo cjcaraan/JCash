@@ -50,11 +50,6 @@ public class Main {
                 break;
             case "3":
                 return false;
-            /*
-             * case "4":
-             * showAccounts();
-             * break;
-             */
             default:
                 System.out.println("Invalid option.");
         }

@@ -1,7 +1,5 @@
 package model;
 
-import services.TransactionServices;
-
 public class User {
     private final long userId;          // this should never change
     private String fullName;
@@ -53,12 +51,6 @@ public class User {
     }
 
     // =====================================
-
-
-    public void getTransactionHistory() {
-        // return new ArrayList<>(transactionHistory);   // a copy so outsiders can't edit it
-        // to be modified
-    }
 
     public boolean checkpin(String attempt) {
         return pin.equals(attempt);
